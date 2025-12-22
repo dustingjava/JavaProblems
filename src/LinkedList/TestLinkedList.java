@@ -13,8 +13,8 @@ public class TestLinkedList {
         linkedList.insertData(9);
 
         linkedList.displayData();
-        linkedList.deleteNode(2);
-        deleteDuplicate(linkedList);
+        //linkedList.deleteNode(2);
+        deleteDuplicateNoBuffer(linkedList);
     }
 
     public static void deleteDuplicate(LinkedList linkedList){
@@ -34,6 +34,25 @@ public class TestLinkedList {
         }
         System.out.println("Removing duplicates");
         linkedlistNew.displayData();
+    }
+
+    public static void deleteDuplicateNoBuffer(LinkedList linkedList) {
+        Node current = linkedList.head;
+
+
+        while(current != null) {
+            Node runner = current;
+            while(runner.next != null) {
+                if(current.data == runner.next.data) {
+                    runner.next = runner.next.next;
+                } else {
+                    runner = runner.next;
+                }
+            }
+            current = current.next;
+        }
+        System.out.println("After deleting: ");
+        linkedList.displayData();
     }
 
 }
