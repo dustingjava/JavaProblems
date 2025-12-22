@@ -1,5 +1,7 @@
 package LinkedList;
 
+import java.util.HashSet;
+
 public class LinkedList {
     Node head;
     public void insertData(int d) {
