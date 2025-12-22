@@ -14,7 +14,8 @@ public class TestLinkedList {
 
         linkedList.displayData();
         //linkedList.deleteNode(2);
-        deleteDuplicateNoBuffer(linkedList);
+        //deleteDuplicateNoBuffer(linkedList);
+        partitionK(linkedList, 5);
     }
 
     public static void deleteDuplicate(LinkedList linkedList){
@@ -53,6 +54,26 @@ public class TestLinkedList {
         }
         System.out.println("After deleting: ");
         linkedList.displayData();
+    }
+
+    public static void partitionK (LinkedList linkedList, int k) {
+        System.out.println("Partitioned: ");
+        LinkedList partitioned = new LinkedList();
+        Node current = linkedList.head;
+        while(current.next != null) {
+            if(current.data < k) {
+                partitioned.insertData(current.data);
+            }
+            current = current.next;
+        }
+        current = linkedList.head;
+        while(current != null) {
+            if(current.data >= k) {
+                partitioned.insertData(current.data);
+            }
+            current = current.next;
+        }
+        partitioned.displayData();
     }
 
 }
