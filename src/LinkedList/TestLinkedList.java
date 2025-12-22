@@ -8,14 +8,15 @@ public class TestLinkedList {
         linkedList.insertData(4);
         linkedList.insertData(5);
         linkedList.insertData(2);
-        linkedList.insertData(5);
-        linkedList.insertData(4);
+        linkedList.insertData(1);
+        linkedList.insertData(3);
         linkedList.insertData(9);
 
         linkedList.displayData();
         //linkedList.deleteNode(2);
         //deleteDuplicateNoBuffer(linkedList);
-        partitionK(linkedList, 5);
+        //partitionK(linkedList, 5);
+        reverseList(linkedList);
     }
 
     public static void deleteDuplicate(LinkedList linkedList){
@@ -74,6 +75,22 @@ public class TestLinkedList {
             current = current.next;
         }
         partitioned.displayData();
+    }
+
+    public static void reverseList(LinkedList linkedlist) {
+        Node current = null;
+        Node n = null;
+        Node head = linkedlist.head;
+        while(head != null) {
+            n = new Node (head.data);
+            n.next = current;
+            current = n;
+            head = head.next;
+
+        }
+        linkedlist.head = n;
+        System.out.println("Reversed list: ");
+        linkedlist.displayData();
     }
 
 }
