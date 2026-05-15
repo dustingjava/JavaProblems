@@ -31,19 +31,17 @@ public class Fibonacci {
     }
 
     static int fiboNoRecursion(int n){
+        if (n <= 0) return 0;
+        if (n == 1) return 1;
+        
         int sum = 1;
         int temp = 1;
         int prev = 0;
-        if(n <= 0 ) {
-            return(0);
-        } else if(n==1) {
-            return(1);
-        }else {
-            for(int i=0; i<n; i++){
-                prev = temp;
-                temp = sum + temp;
-                sum = prev;
-            }
+        
+        for (int i = 2; i <= n; i++) {
+            prev = temp;
+            temp = sum + temp;
+            sum = prev;
         }
         return sum;
     }
